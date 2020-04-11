@@ -2,6 +2,8 @@
 =====================================================================
 ** Galvanize **
 A mod by Kaedraar and Vannflyhite
+Great for using up some of that pesky extra zinc you've got laying
+around!
 
 Copyright © 2020 Henry Corse and contributors.
 Licensed under the GNU GENERAL PUBLIC LICENSE, Version 3.
@@ -21,6 +23,28 @@ minetest.register_craftitem("galvanize:galvanized_iron_ingot", {
 minetest.register_craftitem("galvanize:galvanized_steel_ingot", {
   description = "Galvanized Steel Ingot",
   inventory_image = "galvanize_galvanized_steel_ingot.png"
+})
+
+-- Register our alloy recipes
+-- Galvanized Iron from ingots
+technic.register_alloy_recipe({
+  input = {"technic:wrought_iron_ingot", "technic:zinc_ingot"},
+  output = "galvanize:galvanized_iron_ingot", time = 4
+})
+-- Galvanized Iron from dusts
+technic.register_alloy_recipe({
+  input = {"technic:wrought_iron_dust", "technic:zinc_dust"},
+  output = "galvanize:galvanized_iron_ingot", time = 4
+})
+-- Galvanized Steel from ingots
+technic.register_alloy_recipe({
+  input = {"technic:carbon_steel_ingot", "technic:zinc_ingot"},
+  output = "galvanize:galvanized_steel_ingot", time = 6
+})
+-- Galvanized Steel from dusts
+technic.register_alloy_recipe({
+  input = {"technic:carbon_steel_dust", "technic:zinc_dust"},
+  output = "galvanize:galvanized_steel_ingot", time = 6
 })
 
 -- Returns the crafting recipe table for a given material and item.
@@ -206,27 +230,4 @@ minetest.register_tool("galvanize:galvanized_steel_sword", {
   },
   sound = {breaks = "default_tool_breaks"},
   groups = {sword = 1}
-})
-
-
--- Register our alloy recipes
--- Galvanized Iron from ingots
-technic.register_alloy_recipe({
-  input = {"technic:wrought_iron_ingot", "technic:zinc_ingot"},
-  output = "galvanize:galvanized_iron_ingot", time = 4
-})
--- Galvanized Iron from dusts
-technic.register_alloy_recipe({
-  input = {"technic:wrought_iron_dust", "technic:zinc_dust"},
-  output = "galvanize:galvanized_iron_ingot", time = 4
-})
--- Galvanized Steel from ingots
-technic.register_alloy_recipe({
-  input = {"technic:carbon_steel_ingot", "technic:zinc_ingot"},
-  output = "galvanize:galvanized_steel_ingot", time = 6
-})
--- Galvanized Steel from dusts
-technic.register_alloy_recipe({
-  input = {"technic:carbon_steel_dust", "technic:zinc_dust"},
-  output = "galvanize:galvanized_steel_ingot", time = 6
 })
