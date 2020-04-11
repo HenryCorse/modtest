@@ -47,6 +47,16 @@ technic.register_alloy_recipe({
   output = "galvanize:galvanized_steel_ingot", time = 6
 })
 
+-- Zinc Carbon Batteries
+minetest.register_craft({
+  output = "technic:battery",
+  recipe = {
+    {"group:wood", "technic:zinc_ingot", "group:wood"},
+    {"group:wood", "technic:coal_dust",    "group:wood"},
+    {"group:wood", "technic:zinc_ingot", "group:wood"},
+  }
+})
+
 -- Returns the crafting recipe table for a given material and item.
 local function get_recipe(material, item)
   if item == "sword" then
